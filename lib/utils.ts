@@ -198,13 +198,13 @@ export const getTransactionStatus = (date: Date) => {
 export const authFormSchema = (type: string) => z.object({
   // signup
   firstName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-  lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  lastName: type === 'sign-in' ? z.string().optional() : z.string().min(1),
   address1: type === 'sign-in' ? z.string().optional() :z.string().max(50),
   city: type === 'sign-in' ? z.string().optional() :z.string().max(50),
   state: type === 'sign-in' ? z.string().optional() :z.string().min(2).max(2),
   postalCode: type === 'sign-in' ? z.string().optional(): z.string().min(6).max(7),
-  dateOfBirth: type === 'sign-in' ? z.string().optional(): z.string().min(7).max(7),
-  ssn: type === 'sign-in' ? z.string().optional() : z.string().min(10).max(10),
+  dateOfBirth: type === 'sign-in' ? z.string().optional(): z.string().min(7).max(10),
+  panCard: type === 'sign-in' ? z.string().optional() : z.string().min(10).max(10),
   // both
   email: z.string().email(),
   password: z.string().min(8, "Password must be at least 8 characters"),
