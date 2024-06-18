@@ -13,6 +13,7 @@ interface CustomInput {
   name: FieldPath<z.infer<typeof formSchema>>,
   label: string,
   placeholder: string
+  
 }
 
 const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {

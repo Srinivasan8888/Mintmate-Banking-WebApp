@@ -28,10 +28,9 @@ const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  
 
   const formSchema = authFormSchema(type);
-
-    // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
@@ -40,16 +39,12 @@ const AuthForm = ({ type }: { type: string }) => {
       },
     })
    
-    // 2. Define a submit handler.
     const onSubmit = async (data: z.infer<typeof formSchema>) => {
       setIsLoading(true);
 
       try {
-        // Sign up with Appwrite & create plaid token
-
         if(type === 'sign-up') {
           const newUser = await signUp(data);
-
           setUser(newUser);
         }
 
@@ -78,7 +73,7 @@ const AuthForm = ({ type }: { type: string }) => {
               height={34}
               alt="Horizon logo"
             />
-            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">Horizon</h1>
+            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">MintMate</h1>
           </Link>
 
           <div className="flex flex-col gap-1 md:gap-3">
@@ -110,7 +105,7 @@ const AuthForm = ({ type }: { type: string }) => {
                 <>
                   <div className="flex gap-4">
                     <CustomInput control={form.control} name='firstName' label="First Name" placeholder='Enter your first name' />
-                    <CustomInput control={form.control} name='lastName' label="Last Name" placeholder='Enter your last name' />
+                    <CustomInput control={form.control} name='lastName' label="Last Name" placeholder='Enter your first name' />
                   </div>
                   <CustomInput control={form.control} name='address1' label="Address" placeholder='Enter your specific address' />
                   <CustomInput control={form.control} name='city' label="City" placeholder='Enter your city' />
