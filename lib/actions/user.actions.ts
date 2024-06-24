@@ -139,18 +139,26 @@ export const createBankAccount = async ({
 }: createBankAccountProps) => {
   try {
     const { database } = await createAdminClient();
+
     const bankAccount = await database.createDocument(
       DATABASE_ID!,
       BANK_COLLECTION_ID!,
       ID.unique(),
-      { userId, bankId, accountId, accessToken, fundingSourceUrl, shareableId }
-    );
+      {
+        userId,
+        bankId,
+        accountId,
+        accessToken,
+        fundingSourceUrl,
+        shareableId,
+      }
+    )
+
     return parseStringify(bankAccount);
   } catch (error) {
     console.log(error);
   }
-};
-
+}
 export const exchangePublicToken = async ({
   publicToken,
   user,
