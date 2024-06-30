@@ -7,7 +7,7 @@ const AnimatedCounter = ({amount}: {amount: number}) => {
     <div className='w-full'>
     <Countup 
     decimals={2} 
-    decimal=','
+    decimal='.'
     prefix='₹ ' 
     duration={2} 
     end={amount}/>
