@@ -1,7 +1,11 @@
+
+
 declare type SearchParamProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
+
+// ========================================
 
 declare type SignUpParams = {
   firstName: string;
@@ -22,7 +26,6 @@ declare type LoginUser = {
 };
 
 declare type User = {
-  FirstName: any;
   $id: string;
   email: string;
   userId: string;
