@@ -38,7 +38,7 @@ export const getTransactionsByBankId = async ({bankId}: getTransactionsByBankIdP
       DATABASE_ID!,
       TRANSACTION_COLLECTION_ID!,
       [Query.equal('senderBankId', bankId)],
-    );
+    )
 
     const receiverTransactions = await database.listDocuments(
       DATABASE_ID!,
@@ -52,7 +52,7 @@ export const getTransactionsByBankId = async ({bankId}: getTransactionsByBankIdP
         ...senderTransactions.documents, 
         ...receiverTransactions.documents,
       ]
-    };
+    }
 
     return parseStringify(transactions);
   } catch (error) {
