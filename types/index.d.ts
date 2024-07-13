@@ -50,6 +50,7 @@ declare type NewUserParams = {
 };
 
 declare type Account = {
+  sharaebleId: string;
   id: string;
   availableBalance: number;
   currentBalance: number;
@@ -308,6 +309,7 @@ declare interface exchangePublicTokenProps {
   user: User;
 }
 
+
 declare interface createBankAccountProps {
   accessToken: string;
   userId: string;
@@ -316,7 +318,6 @@ declare interface createBankAccountProps {
   fundingSourceUrl: string;
   shareableId: string;
 }
-
 declare interface getBanksProps {
   userId: string;
 }
